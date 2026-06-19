@@ -16,9 +16,9 @@ export default function SaigonEyeLogo({
 
   return (
     <img
-      src="/logo-msg.png"
+      src="/images/logo-msg.png"
       alt="Bệnh Viện Mắt Sài Gòn"
-      className={`h-10 sm:h-12 w-auto max-w-[220px] sm:max-w-[260px] object-contain ${alignClass} brand-logo ${className}`}
+      className={`h-10 sm:h-12 w-auto max-w-[220px] sm:max-w-[260px] object-contain ${alignClass} brand-logo ${className}`.trim()}
     />
   );
 }
