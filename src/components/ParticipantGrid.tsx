@@ -182,7 +182,7 @@ export default function ParticipantGrid({
         <input
           id="grid-search-input"
           type="text"
-          placeholder="Tìm kiếm người tham gia theo tên hoặc mã 6 số..."
+          placeholder="Tìm kiếm người tham gia theo tên hoặc mã 3 số..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full pl-11 pr-4 py-3 bg-white/90 border border-slate-200 outline-none focus:border-[#009B4D] focus:ring-2 focus:ring-emerald-100 rounded-2xl shadow-sm text-slate-800 transition-all font-medium text-sm text-center"

@@ -80,11 +80,11 @@ export default function AdminPanel({
     setPasswordInput('');
   };
 
-  // Auto generate random 6 digit unique number
+  // Auto generate random 3 digit unique number
   const generateRandom6DigitCode = () => {
     let attempts = 0;
     while (attempts < 50) {
-      const code = Math.floor(100000 + Math.random() * 900000).toString();
+      const code = Math.floor(100 + Math.random() * 900).toString();
       const codeExists = participants.some(p => p.code === code && p.id !== editingParticipant?.id);
       if (!codeExists) {
         setFormCode(code);
@@ -92,8 +92,8 @@ export default function AdminPanel({
       }
       attempts++;
     }
-    // Safe fallback if unique is super full (which is rare with 900k space)
-    setFormCode(Math.floor(100000 + Math.random() * 900000).toString());
+    // Safe fallback if unique is super full (which is rare with 900 space)
+    setFormCode(Math.floor(100 + Math.random() * 900).toString());
   };
 
   // Drag and drop upload functions
@@ -153,12 +153,12 @@ export default function AdminPanel({
       return;
     }
 
-    // Auto-generate 6-digit unique code if blank
+    // Auto-generate 3-digit unique code if blank
     let finalCode = formCode.trim();
     if (!finalCode) {
       let attempts = 0;
       while (attempts < 50) {
-        const temp = Math.floor(100000 + Math.random() * 900000).toString();
+        const temp = Math.floor(100 + Math.random() * 900).toString();
         const codeExists = participants.some(p => p.code === temp && p.id !== editingParticipant?.id);
         if (!codeExists) {
           finalCode = temp;
@@ -167,20 +167,20 @@ export default function AdminPanel({
         attempts++;
       }
       if (!finalCode) {
-        finalCode = Math.floor(100000 + Math.random() * 900000).toString();
+        finalCode = Math.floor(100 + Math.random() * 900).toString();
       }
     }
 
-    // Validate 6 digit code pattern exactly
-    if (!/^\d{6}$/.test(finalCode)) {
-      setFormError('Mã số dự thưởng bắt buộc phải là 6 chữ số liên tiếp! (Ví dụ: 193850)');
+    // Validate 3 digit code pattern exactly
+    if (!/^\d{3}$/.test(finalCode)) {
+      setFormError('Mã số dự thưởng bắt buộc phải là 3 chữ số liên tiếp! (Ví dụ: 193)');
       return;
     }
 
     // Checking unique codes
     const isCodeDuplicated = participants.some(p => p.code === finalCode && p.id !== editingParticipant?.id);
     if (isCodeDuplicated) {
-      setFormError('Lỗi: Mã số 6 số này đã thuộc về một người tham gia khác! Mã bắt buộc không trùng nhau.');
+      setFormError('Lỗi: Mã số 3 số này đã thuộc về một người tham gia khác! Mã bắt buộc không trùng nhau.');
       return;
     }
 
@@ -403,7 +403,7 @@ export default function AdminPanel({
           <input
             id="admin-search-input"
             type="text"
-            placeholder="Tìm theo tên hoặc mã dự thưởng 6 số..."
+            placeholder="Tìm theo tên hoặc mã dự thưởng 3 số..."
             value={adminSearch}
             onChange={(e) => setAdminSearch(e.target.value)}
             className="w-full pl-11 pr-4 py-2.5 bg-white border border-slate-200 outline-none focus:border-[#009B4D] focus:ring-1 focus:ring-emerald-50 rounded-xl text-slate-800 transition-all font-medium text-sm"
@@ -463,18 +463,18 @@ export default function AdminPanel({
                   />
                 </div>
 
-                {/* 6 Digit code & Code builder */}
+                {/* 3 Digit code & Code builder */}
                 <div>
                   <label htmlFor="form-code-field" className="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5">
-                    Mã số dự thưởng (6 số không trùng) *
+                    Mã số dự thưởng (3 số không trùng) *
                   </label>
                   <div className="flex gap-2">
                     <input
                       id="form-code-field"
                       type="text"
                       required
-                      maxLength={6}
-                      placeholder="VD: 194859"
+                      maxLength={3}
+                      placeholder="VD: 194"
                       value={formCode}
                       onChange={(e) => setFormCode(e.target.value.replace(/[^0-9]/g, ''))}
                       className="flex-grow px-4 py-2.5 border border-slate-200 outline-none focus:border-[#009B4D] rounded-xl text-slate-800 font-mono text-center tracking-widest text-lg font-bold"
@@ -489,7 +489,7 @@ export default function AdminPanel({
                     </button>
                   </div>
                   <span className="text-[11px] text-gray-500 mt-1 block">
-                    Bao gồm đúng 6 chữ số viết liền nhau. Ví dụ: 123456
+                    Bao gồm đúng 3 chữ số viết liền nhau. Ví dụ: 123
                   </span>
                 </div>
 

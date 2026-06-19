@@ -22,7 +22,7 @@ const DEFAULT_DEMO_PARTICIPANTS: Participant[] = [
   {
     id: 'demo-1',
     name: 'BS. Nguyễn Minh Anh (Khoa Giác Mạc)',
-    code: '102948',
+    code: '102',
     avatar_url: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=200',
     is_active: true,
     created_at: new Date(Date.now() - 3600000 * 3).toISOString()
@@ -30,7 +30,7 @@ const DEFAULT_DEMO_PARTICIPANTS: Participant[] = [
   {
     id: 'demo-2',
     name: 'Đoàn Thị Thu Thảo (Khúc xạ viên)',
-    code: '859402',
+    code: '859',
     avatar_url: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&q=80&w=200',
     is_active: true,
     created_at: new Date(Date.now() - 3600000 * 2.5).toISOString()
@@ -38,7 +38,7 @@ const DEFAULT_DEMO_PARTICIPANTS: Participant[] = [
   {
     id: 'demo-3',
     name: 'Trần Hoàng Nam (Bệnh nhân FemtoLASIK)',
-    code: '334921',
+    code: '334',
     avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
     is_active: true,
     created_at: new Date(Date.now() - 3600000 * 2).toISOString()
@@ -46,7 +46,7 @@ const DEFAULT_DEMO_PARTICIPANTS: Participant[] = [
   {
     id: 'demo-4',
     name: 'Phạm Minh Đức (Phẫu thuật Phaco)',
-    code: '674839',
+    code: '674',
     avatar_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
     is_active: true,
     created_at: new Date(Date.now() - 3600000 * 1.5).toISOString()
@@ -54,7 +54,7 @@ const DEFAULT_DEMO_PARTICIPANTS: Participant[] = [
   {
     id: 'demo-5',
     name: 'ThS. BS Lê Hoàng Nam (Chuyên gia cận thị)',
-    code: '459102',
+    code: '459',
     avatar_url: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=200',
     is_active: true,
     created_at: new Date(Date.now() - 3600000).toISOString()
@@ -62,7 +62,7 @@ const DEFAULT_DEMO_PARTICIPANTS: Participant[] = [
   {
     id: 'demo-6',
     name: 'Lê Thu Trang (Khách hàng ReLEx SMILE)',
-    code: '294819',
+    code: '294',
     avatar_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200',
     is_active: true,
     created_at: new Date().toISOString()
@@ -140,7 +140,7 @@ export const db = {
       
       // Check code unique
       if (list.some(p => p.code === participant.code)) {
-        throw new Error('Mã số 6 số đã tồn tại trong hệ thống!');
+        throw new Error('Mã số dự thưởng này đã tồn tại trong hệ thống!');
       }
 
       list.unshift(newParticipant);
@@ -180,7 +180,7 @@ export const db = {
       // Check unique code if code is changed
       if (updates.code && updates.code !== list[index].code) {
         if (list.some(p => p.code === updates.code && p.id !== id)) {
-          throw new Error('Mã số 6 số đã tồn tại trong hệ thống!');
+          throw new Error('Mã số dự thưởng này đã tồn tại trong hệ thống!');
         }
       }
 
