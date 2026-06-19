@@ -1,0 +1,6 @@
+{
+  "name": "Mắt Sài Gòn - Trình chiếu",
+  "description": "Ứng dụng trình chiếu danh sách người tham gia phong cách Kahoot với nhận diện màu sắc thương hiệu Bệnh Viện Mắt Sài Gòn.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
